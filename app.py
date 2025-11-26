@@ -60,7 +60,7 @@ all_categories = {
 st.title("✨ 오늘의 랜덤 꿀팁 생성기 ✨")
 st.markdown("""
 <div style='background-color: #F0F2F6; padding: 15px; border-radius: 10px;'>
-    <p style='margin: 0; font-size: 16px;'>
+    <p style='margin: 0; font-size: 16px; color: #333333;'>
         아래 버튼을 누르면 <strong>명언, 농담, 점심 메뉴, 일상 꿀팁</strong> 중 하나를 무작위로 뽑아 보여드립니다.
     </p>
 </div>
@@ -87,8 +87,16 @@ if st.button("새로운 꿀팁 받기 🔄", type="primary", use_container_width
 
 # 결과 표시
 st.markdown(f"## {st.session_state.tip_category}")
-st.success(f"""
-<div style='padding: 20px; border-radius: 8px; font-size: 20px; text-align: center;'>
+
+# 오류가 발생했던 st.success 부분을 st.markdown으로 변경하고 스타일 조정
+st.markdown(f"""
+<div style='background-color: #E6F7F0; /* 연한 녹색 배경 (성공 색상 계열) */
+            color: #1F7A54; /* 짙은 녹색 글씨 */
+            padding: 25px; 
+            border-radius: 12px; 
+            font-size: 24px; 
+            text-align: center; 
+            border: 1px solid #B3E0CC;'>
     <strong>{st.session_state.tip_content}</strong>
 </div>
 """, unsafe_allow_html=True)
